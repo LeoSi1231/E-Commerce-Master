@@ -1,15 +1,15 @@
 import {useState} from "react"
 import {Routes, Route} from "react-router-dom"
 import NavBar from "./componentes/navbar"
-import Inicio from "./Paginas/Inicio"
-import Usuarios from "./Paginas/Usuarios"
+import Inicio from "./paginas/Inicio"
+import Usuarios from "./paginas/verUsuarios/verUsuarios"
  
 function App() {
   return <>
   <NavBar/>
   <Routes>
-<Route path="/Inicio" element={<h1>TITULO</h1> }/>
-<Route path= "/Usuarios" element={<button>BOTON</button>}/>
+<Route path="/.paginas/inicio" element={<Inicio/> }/>
+<Route path= "/.paginas/VerUsuarios/verUsuarios" element={<verUsuarios/>}/>
 
   </Routes>
   </>

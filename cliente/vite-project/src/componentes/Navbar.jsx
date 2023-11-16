@@ -14,11 +14,11 @@ function NavBar () {
           <NavLink to ="/" className="nav-link ">Inicio</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to ="/titulo" className="nav-link">Usuarios</NavLink>
+          <NavLink to ="/.paginas/verUsuarios" className="nav-link">Usuarios</NavLink>
         </li>
        
         <li className="nav-item">
-          <NavLink to ="/boton" className="nav-link">Iniciar Sesion</NavLink>
+          <NavLink to ="/.paginas/inicio" className="nav-link">Iniciar Sesion</NavLink>
         </li>
       </ul>
       
