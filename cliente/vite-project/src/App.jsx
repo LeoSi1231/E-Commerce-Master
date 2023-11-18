@@ -2,14 +2,20 @@ import {useState} from "react"
 import {Routes, Route} from "react-router-dom"
 import NavBar from "./componentes/navbar"
 import Inicio from "./paginas/Inicio"
-import Usuarios from "./paginas/verUsuarios/verUsuarios"
+import VerUsuarios from "./paginas/usuarios/verUsuarios"
+import VerUsuario from "./paginas/usuarios/VerUsuario"
+import CrearUsuario from "./paginas/usuarios/CrearUsuario"
+
  
 function App() {
   return <>
   <NavBar/>
   <Routes>
-<Route path="/.paginas/inicio" element={<Inicio/> }/>
-<Route path= "/.paginas/VerUsuarios/verUsuarios" element={<verUsuarios/>}/>
+<Route path="/" element= {<Inicio/> }/>
+<Route path= "/ver-usuarios" element= {<VerUsuarios/>}/>
+<Route path= "/registrarse" element= {<CrearUsuario/>}/>
+<Route path= "/ver-usuario/:idUsuario" element= {<VerUsuario/>}/>
+
 
   </Routes>
   </>

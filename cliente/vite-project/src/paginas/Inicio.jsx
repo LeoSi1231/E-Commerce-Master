@@ -3,6 +3,10 @@ import {Navigate} from "react-router-dom"
 
 function Inicio () {
     
-    return 
+    return (
+        <>
+        <h1>Inicio</h1>
+        </>
+    )
 }
 export default Inicio

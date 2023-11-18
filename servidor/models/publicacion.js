@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const commentSchema = new Schema({
+const publicacionSchema = new Schema({
     tittle : String,
     text : String,
     autor : {
@@ -23,4 +23,4 @@ const commentSchema = new Schema({
     }
 )
 
-module.exports = mongoose.model('Comentario', commentSchema)
+module.exports = mongoose.model('Publicacion', publicacionSchema)

@@ -14,11 +14,16 @@ function NavBar () {
           <NavLink to ="/" className="nav-link ">Inicio</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to ="/.paginas/verUsuarios" className="nav-link">Usuarios</NavLink>
+          <NavLink to ="/ver-usuarios" className="nav-link">Usuarios</NavLink>
         </li>
        
         <li className="nav-item">
-          <NavLink to ="/.paginas/inicio" className="nav-link">Iniciar Sesion</NavLink>
+          <NavLink to ="/login" className="nav-link">Iniciar Sesion</NavLink>
+        </li>
+      </ul>
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <li className="nav-item">
+          <NavLink to ="/registrarse" className="nav-link ">Registrarse</NavLink>
         </li>
       </ul>
       
