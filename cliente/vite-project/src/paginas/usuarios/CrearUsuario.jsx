@@ -1,7 +1,10 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import Register from "../../componentes/Register";
+
 
 function CrearUsuario () {
+    const navigate = useNavigate();
     const [usuario, setUsuario] = useState({
         nombre: "",
         apellido: "",
@@ -10,15 +13,25 @@ function CrearUsuario () {
     })
 
     function manejarInputs(evento) {
-        setUsuario({...usuario})
+        setUsuario({...usuario,
+            [evento.target.name]: evento.target.value})
     }
-    console.log(nombre)
+    console.log(usuario)
 
-    function enviarPeticion() {
+    function enviarPeticion(evento) {
+        evento.preventDefault()
         fetch("http://localhost:3000/usuarios",{
-            method: "POST"
-        })
-    }
+            method: "POST",
+            headers : {
+                "Content-Type": "application/json"
+            },
+            credentials: "include",
+            body: JSON.stringify(usuario),
+        }).then((response) => {
+            navigate("/usuarios")
+            })
+        }
+    
 
     return (
         <>
@@ -53,7 +66,7 @@ function CrearUsuario () {
         onChange={manejarInputs}
         name="Password"
         />
-        <button onClick={}></button>
+        <button type="submit" onClick={enviarPeticion}>Registrarse</button>
         </>
     )
 }

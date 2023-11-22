@@ -6,10 +6,14 @@ function VerUsuarios () {
     const [usuarios, setUsuarios] = useState([{}])
 
     async function cargarUsuarios () {
-        const response = await fetch('http://localhost:3000/usuarios')
+        const response = await fetch("http://localhost:3000/usuarios")
         const data = await response.json()
         setUsuarios(data)
     }
+
+    useEffect(() => {
+        cargarUsuarios()
+    }, [])
 
     function cargarTabla() {
         const filas = usuarios.map ((usuario) => {
@@ -29,10 +33,6 @@ function VerUsuarios () {
         return filas
     }
 
-    useEffect(() => {
-        cargarUsuarios();
-        console.log(usuarios)
-    }, [])
     return (
         <>
         <table>
@@ -40,7 +40,9 @@ function VerUsuarios () {
                 <tr>
                     <th>Id</th>
                     <th>Usuario</th>
+                    <th>Apellido</th>
                     <th>Email</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>{cargarTabla()}</tbody>

@@ -1,10 +1,11 @@
 import {useState} from "react"
 import {Routes, Route} from "react-router-dom"
 import NavBar from "./componentes/navbar"
-import Inicio from "./paginas/Inicio"
-import VerUsuarios from "./paginas/usuarios/verUsuarios"
+import Inicio from "./Paginas/Inicio"
+import VerUsuarios from "./paginas/usuarios/VerUsuarios"
 import VerUsuario from "./paginas/usuarios/VerUsuario"
 import CrearUsuario from "./paginas/usuarios/CrearUsuario"
+import Register from "./componentes/Register"
 
  
 function App() {
