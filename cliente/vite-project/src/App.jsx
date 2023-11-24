@@ -5,17 +5,21 @@ import Inicio from "./Paginas/Inicio"
 import VerUsuarios from "./paginas/usuarios/VerUsuarios"
 import VerUsuario from "./paginas/usuarios/VerUsuario"
 import CrearUsuario from "./paginas/usuarios/CrearUsuario"
-import Register from "./componentes/Register"
+import { useAuth } from "./UseAuth.jsx";
+import Login from "./paginas/Login"
+
 
  
 function App() {
+  const {usuarioLogeado, setUsuarioLogeado} = useAuth();
   return <>
-  <NavBar/>
+  <NavBar usuarioLogeado={usuarioLogeado}/>
   <Routes>
 <Route path="/" element= {<Inicio/> }/>
 <Route path= "/ver-usuarios" element= {<VerUsuarios/>}/>
 <Route path= "/registrarse" element= {<CrearUsuario/>}/>
 <Route path= "/ver-usuario/:idUsuario" element= {<VerUsuario/>}/>
+<Route path= "/login" element= {<Login setUsuarioLogeado={setUsuarioLogeado}/>}/>
 
 
   </Routes>

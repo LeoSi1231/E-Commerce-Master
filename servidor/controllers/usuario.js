@@ -69,7 +69,7 @@ const logoutUsuario = async (req, res) => {
 
 const usuarioLogeado = async (req, res) => {
     if (req.user) {
-        res.json(req.user);
+        res.json({logeado:true, usuario: req.user});
     } else {
         res.json({msg: 'No hay usuario logeado'});
     }

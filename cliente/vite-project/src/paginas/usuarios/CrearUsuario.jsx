@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import Register from "../../componentes/Register";
+
 
 
 function CrearUsuario () {
@@ -28,7 +28,7 @@ function CrearUsuario () {
             credentials: "include",
             body: JSON.stringify(usuario),
         }).then((response) => {
-            navigate("/usuarios")
+            navigate("/")
             })
         }
     
@@ -36,39 +36,53 @@ function CrearUsuario () {
     return (
         <>
         <h1>Registrarse!</h1>
-        <input
-        type="text" 
+        <form className="row g-3">
+  <div className="mb-2">
+  <label htmlFor="inputCity" className="form-label">Nombre</label>
+    <input type="text" 
         placeholder="Nombre"
         value={usuario.nombre} 
         onChange={manejarInputs} 
         name="nombre"/>
-
-        <input 
-        type="text" 
+  </div>
+  <div className="mb-2">
+  <label htmlFor="inputState" className="form-label">Apellido</label>
+    <input type="text" 
         placeholder="Apellido" 
         value={usuario.apellido} 
         onChange={manejarInputs}
-        name="apellido"
-        />
-
-        <input 
-        type="text" 
+        name="apellido" />
+  </div>
+  <div className="mb-2">
+  <label htmlFor="exampleInputEmail1" className="form-label">Email</label>
+    <input type="text" 
         placeholder="Email" 
         value={usuario.email} 
         onChange={manejarInputs }
-        name="Email"
-        />
-
-        <input 
-        type="text" 
-        placeholder="Password" 
+        name="email" />
+    
+  </div>
+  <div className="mb-2">
+  <label htmlFor="exampleInputPassword1" className="form-label">Contraseña</label>
+    <input type="text" 
+        placeholder="Contraseña" 
         value={usuario.password} 
         onChange={manejarInputs}
-        name="Password"
+        name="password"
         />
-        <button type="submit" onClick={enviarPeticion}>Registrarse</button>
+   
+  </div>
+ 
+  <div className="col-12">
+    <button className="btn btn-primary" type="submit" onClick={enviarPeticion}>Registrarse</button>
+  </div>
+</form>
         </>
     )
 }
+ 
+    
+
 
 export default CrearUsuario
+

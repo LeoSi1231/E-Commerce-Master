@@ -1,6 +1,15 @@
 import {NavLink } from "react-router-dom"
 
-function NavBar () {
+function NavBar ({usuarioLogeado}) {
+
+  const linksLogeado = () => {
+    return <h1>{usuarioLogeado.usuario.nombre}</h1>
+  }
+
+  const linksDeslogeado = () => {
+    return <h1>Desconectado</h1>
+  }
+
     return <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{ position:"top"}}> 
   <div className="container-fluid">
     <NavLink to ="/" className="navbar-brand" >E-Commerce</NavLink>
@@ -25,6 +34,10 @@ function NavBar () {
         <li className="nav-item">
           <NavLink to ="/registrarse" className="nav-link ">Registrarse</NavLink>
         </li>
+      </ul>
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        {usuarioLogeado.logeado ? linksLogeado() : linksDeslogeado()}
+
       </ul>
       
     </div>
