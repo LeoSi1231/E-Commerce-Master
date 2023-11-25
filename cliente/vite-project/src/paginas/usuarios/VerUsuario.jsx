@@ -19,7 +19,8 @@ function VerUsuario() {
         <>
         <h1>Ver Usuario</h1>
         <h2>Id: {idUsuario}</h2>
-        <h3>Nombre: {usuario.username}</h3>
+        <h3>Nombre: {usuario.nombre}</h3>
+        <h3>Apellido: {usuario.apellido}</h3>
         <h3>Email: {usuario.email}</h3>
         </>
     )

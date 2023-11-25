@@ -55,7 +55,7 @@ const eliminarUsuario = async (req, res) => {
 const loginUsuario = async (req, res) => {
     const { username } = req.body;
     const usuario = await Usuario.findOne({ username });
-    res.json(usuario);
+    res.json({logeado: true, usuario: usuario});
 }
 
 const logoutUsuario = async (req, res) => {

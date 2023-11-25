@@ -20,8 +20,10 @@ function VerUsuarios () {
             return (
                 <tr key= {`${usuario._id}`}>
                     <td>{usuario.id}</td>
-                    <td>{usuario.username}</td>
+                    <td>{usuario.nombre}</td>
+                    <td>{usuario.apellido}</td>
                     <td>{usuario.email}</td>
+
                     <td>
                         <Link to = {`/ver-usuario/${usuario._id}`}>
                         <button>Ver Usuario</button>
@@ -39,7 +41,7 @@ function VerUsuarios () {
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Usuario</th>
+                    <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Email</th>
                     <th>Acciones</th>

@@ -3,14 +3,35 @@ import {NavLink } from "react-router-dom"
 function NavBar ({usuarioLogeado}) {
 
   const linksLogeado = () => {
-    return <h1>{usuarioLogeado.usuario.nombre}</h1>
+    return (
+      <>
+    <li className="nav-item">
+    <NavLink 
+    to ={`/ver-usuario/${usuarioLogeado.usuario._id}`} className="nav-link">{usuarioLogeado.usuario.nombre}</NavLink>
+    </li>
+    <li className="nav-item">
+      <NavLink to ="/logout" className="nav-link">Desconectarse</NavLink>
+    </li>
+    </>
+    )
   }
 
   const linksDeslogeado = () => {
-    return <h1>Desconectado</h1>
+    return(
+    <>
+    <li className="nav-item">
+      <NavLink to ="/login" className="nav-link">Iniciar Sesion</NavLink>
+    </li>
+    <li className="nav-item">
+      <NavLink to ="/registrarse" className="nav-link">Registrarse</NavLink>
+    </li>
+    </> 
+    )
   }
 
-    return <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{ position:"top"}}> 
+    return ( <nav
+    className="navbar navbar-expand-lg "
+    style={{ backgroundColor: "#fff159" }}>
   <div className="container-fluid">
     <NavLink to ="/" className="navbar-brand" >E-Commerce</NavLink>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,15 +46,15 @@ function NavBar ({usuarioLogeado}) {
         <li className="nav-item">
           <NavLink to ="/ver-usuarios" className="nav-link">Usuarios</NavLink>
         </li>
-       
         <li className="nav-item">
-          <NavLink to ="/login" className="nav-link">Iniciar Sesion</NavLink>
+          <NavLink to ="/ver-categorias" className="nav-link">Categorias</NavLink>
         </li>
       </ul>
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-        <li className="nav-item">
-          <NavLink to ="/registrarse" className="nav-link ">Registrarse</NavLink>
-        </li>
+      </ul>
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+      </ul>
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
       </ul>
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         {usuarioLogeado.logeado ? linksLogeado() : linksDeslogeado()}
@@ -45,6 +66,6 @@ function NavBar ({usuarioLogeado}) {
   </div>
 </nav>
  
-}
+    )}
 
 export default NavBar

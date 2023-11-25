@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom"
 
 function Login ({setUsuarioLogeado}) {
     const [objUsuario, setObjUsuario] = useState({
-        email: "",
+        username: "",
         password: ""
     })
 
@@ -17,7 +17,8 @@ function Login ({setUsuarioLogeado}) {
             [evento.target.name]: evento.target.value})
     }
 
- const enviarLogin =() => {
+ const enviarLogin =(e) => {
+        e.preventDefault();
         fetch("http://localhost:3000/usuarios/login",{
             method: "POST",
             headers : {
@@ -29,6 +30,7 @@ function Login ({setUsuarioLogeado}) {
             return response.json();
             })
             .then((data) => {
+                console.log(data);
                 setUsuarioLogeado(data);
                 if (data.logeado){
                 navigate("/");
@@ -44,9 +46,9 @@ function Login ({setUsuarioLogeado}) {
     <label htmlFor="exampleInputEmail1" className="form-label">Email</label>
     <input type="text" 
         placeholder="Email" 
-        value={objUsuario.email} 
+        value={objUsuario.username} 
         onChange={manejarInputs }
-        name="email" />
+        name="username" />
     
     </div>
     <div className="mb-2">
