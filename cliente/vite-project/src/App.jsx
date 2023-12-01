@@ -7,8 +7,10 @@ import VerUsuario from "./paginas/usuarios/VerUsuario"
 import CrearUsuario from "./paginas/usuarios/CrearUsuario"
 import { useAuth } from "./UseAuth.jsx";
 import Login from "./paginas/Login"
-import VerCategoria from "./paginas/categorias/VerCategoria"
+import VerCategorias from "./paginas/categorias/VerCategorias"
+import CrearCategoria from "./paginas/categorias/CrearCategoria"
 import LogoutUsuario from "./componentes/LogoutUsuario"
+import VerPublicaciones from "./paginas/publicaciones/VerPublicaciones"
 
 
  
@@ -23,7 +25,9 @@ function App() {
 <Route path= "/ver-usuario/:idUsuario" element= {<VerUsuario/>}/>
 <Route path= "/login" element= {<Login setUsuarioLogeado={setUsuarioLogeado}/>}/>
 <Route path="/logout" element={<LogoutUsuario setUsuarioLogeado={setUsuarioLogeado}/>}/>
-<Route path= "/ver-categorias" element= {<VerCategoria/>}/>
+<Route path= "/ver-categorias" element= {<VerCategorias/>}/>
+<Route path= "/crear-categoria" element= {<CrearCategoria/>}/>
+<Route path= "/ver-publicaciones" element= {<VerPublicaciones/>}/>
 
 
   </Routes>

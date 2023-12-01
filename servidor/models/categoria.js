@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const categoriaSchema = new Schema({
     nombre: String,
+    descripcion: String,
     publicaciones: [{
         type: Schema.Types.ObjectId,
         ref: 'Publicacion'

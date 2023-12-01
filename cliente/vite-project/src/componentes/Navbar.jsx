@@ -49,6 +49,9 @@ function NavBar ({usuarioLogeado}) {
         <li className="nav-item">
           <NavLink to ="/ver-categorias" className="nav-link">Categorias</NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink to ="/ver-publicaciones" className="nav-link">Publicaciones</NavLink>
+        </li>
       </ul>
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
       </ul>
