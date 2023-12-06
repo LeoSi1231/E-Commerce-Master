@@ -9,10 +9,10 @@ const usuarioSchema = Joi.object({
 })
 
 const publicacionSchema = Joi.object({
-    titulo: Joi.string().required(),
-    texto: Joi.string().required(),
+    tittle: Joi.string().required(),
+    text: Joi.string().required(),
     autor: Joi.string().required(),
-    categorias: Joi.array(),
+    categoria: Joi.string().required(),
     comentarios: Joi.array(),
 })
 

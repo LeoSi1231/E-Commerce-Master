@@ -1,7 +1,7 @@
 const categoria = require('../models/categoria');
 const Publicacion = require('../models/publicacion');
 const Usuario = require('../models/usuario');
-
+const Categoria = require('../models/categoria');
 
 const verPublicaciones = async (req, res) => {
     const publicaciones = await Publicacion.find();
@@ -11,30 +11,28 @@ const verPublicaciones = async (req, res) => {
 const verPublicacion = async (req, res) => {
     const { id } = req.params;
     const publicacion = await Publicacion.findById(id).populate('autor').populate({
-        path: 'comentarios', populate: 'autor' });
+        path: 'comentarios', populate: 'autor' })
+        .populate('categoria');
     res.json(publicacion);
 }
 
 const crearPublicacion = async (req, res) => {
-    const { titulo, texto, autor,categorias, } = req.body;
-    const publicacion = new Publicacion({ titulo, texto, autor,categorias, });
+    const { tittle, text, autor,categoria, } = req.body;
+    const publicacion = new Publicacion({ tittle, text, autor,categoria, });
     await publicacion.save();
     await Usuario .findByIdAndUpdate(autor, { $push: { publicaciones: publicacion._id } });
-    
-    for (let i = 0; i < categoria.length; i++) {
-        await categoria.findByIdAndUpdate(categoria[i],
-             { $push: { categoria: categoria._id } });
-    }
+    await Categoria.findByIdAndUpdate(categoria, { $push: { publicaciones: publicacion._id } });
+
     res.json({msg: 'Publicacion creada',publicacion});
     
 }
 
 const editarPublicacion = async (req, res) => {
     const { id } = req.params;
-    const { titulo, texto, autor,categoria, } = req.body;
+    const { title, text, autor,categoria, } = req.body;
     const publicacion = await Publicacion.findByIdAndUpdate(id, {
-         titulo,
-          texto, 
+         title,
+          text, 
           autor,
           categoria, });
     
@@ -56,7 +54,7 @@ const eliminarPublicacion = async (req, res) => {
     await Usuario .findByIdAndUpdate(autor, 
         { $pull: { publicaciones: publicacion._id } });
 
-    await categoria.updateMany(publicacion.categorias,{
+    await categoria.updateMany(publicacion.categoria,{
         $pull: { publicaciones: publicacion._id }
     });
         

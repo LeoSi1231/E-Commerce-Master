@@ -6,9 +6,9 @@ const publicacionSchema = new Schema({
     text : String,
     autor : {
         type: Schema.Types.ObjectId,
-        ref: 'Usuario'
+        ref: 'usuario'
     },
-    categorias : {
+    categoria : {
         type: Schema.Types.ObjectId,
         ref: 'Categoria'
     },
@@ -17,7 +17,7 @@ const publicacionSchema = new Schema({
         ref: 'Comentario',
         autor : {
             type: Schema.Types.ObjectId,
-            ref: 'Usuario'
+            ref: 'usuario'
         },
     }]
     }
