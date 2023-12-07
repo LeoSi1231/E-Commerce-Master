@@ -22,7 +22,7 @@ function VerCategorias () {
             titulo = {categoria.nombre}
             textoCard = {categoria.descripcion}
             textoBoton = "Ver publicaciones"
-            linkBoton = {`/categoria/${categoria._id}`}
+            linkBoton = {`/ver-categoria/${categoria._id}`}
             />
             )
         })

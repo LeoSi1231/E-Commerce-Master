@@ -12,8 +12,8 @@ const verCategoria = async (req, res) => {
 }
 
 const crearCategoria = async (req, res) => {
-    const { nombre } = req.body;
-    const categoria = new Categoria({ nombre });
+    const { nombre, descripcion } = req.body;
+    const categoria = new Categoria({ nombre, descripcion });
     await categoria.save();
     res.json({msg: 'Categoria creada',categoria});
 }

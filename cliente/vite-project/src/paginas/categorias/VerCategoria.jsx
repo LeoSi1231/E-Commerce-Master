@@ -1,21 +1,40 @@
+import { useParams } from "react-router-dom"
+import { useState, useEffect } from "react"
+import Card from "../../componentes/Card"
+
 function VerCategoria() {
     const {idCategoria} = useParams()
-    const [categoria, setCategoria] = useState({})
+    const [categoria, setCategoria] = useState({
+        publicaciones :[]
+    })
 
     async function cargarCategoria () {
-        const datos = await fetch(`http://localhost:3000/publicaciones/${idPublicacion}`)
+        const datos = await fetch(`http://localhost:3000/categorias/${idCategoria}`)
         const data = await datos.json()
-        setPublicacion(data)
+        setCategoria(data)
     }
     useEffect(() => {
-        cargarPublicacion()
+        cargarCategoria()
     }, [])
     
+    const contenido = categoria.publicaciones.map ((publicacion) => {
+        return( <Card
+        key= {`${publicacion._id}`}
+        titulo = {publicacion.tittle}
+        textoCard = {publicacion.text}
+        textoBoton = "Ver publicacion"
+        linkBoton = {`/ver-publicaciones/${publicacion._id}`}
+        />
+        )
+    })
 
 
     return (
         <div>
-            <h1>Ver Categorias</h1>
+           {contenido}
+            
         </div>
     );
 }
+
+export default VerCategoria

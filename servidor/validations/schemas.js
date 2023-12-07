@@ -19,7 +19,7 @@ const publicacionSchema = Joi.object({
 const comentarioSchema = Joi.object({
     publicacion: Joi.string().required(),
     autor: Joi.string().required(),
-    texto: Joi.string().required(),
+    text: Joi.string().required(),
     puntuacion: Joi.number(),
 })
 

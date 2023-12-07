@@ -6,7 +6,7 @@ const commentSchema = new Schema({
     puntuacion : Number,
     autor : {
         type: Schema.Types.ObjectId,
-        ref: 'Usuario'
+        ref: 'usuario'
     },
     publicacion : {
         type: Schema.Types.ObjectId,

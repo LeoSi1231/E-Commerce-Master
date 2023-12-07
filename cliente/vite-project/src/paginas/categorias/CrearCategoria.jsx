@@ -4,7 +4,10 @@ import { useNavigate } from "react-router-dom"
 function CrearCategoria () {
 
     const navigate = useNavigate();
-    const [categoria, setCategoria] = useState([{}])
+    const [categoria, setCategoria] = useState({
+        nombre: "",
+        descripcion: ""
+    })
 
     function manejarInputs(evento) {
         setCategoria({...categoria,

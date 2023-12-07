@@ -5,8 +5,8 @@ const Publicacion = require('../models/publicacion');
 
 
 const crearComentario = async (req, res) => {
-    const { publicacion, autor, texto } = req.body;
-    const Comentario = new comentario({ publicacion, autor, texto });
+    const { publicacion, autor, text, puntuacion } = req.body;
+    const Comentario = new comentario({ publicacion, autor, text, puntuacion });
     await Publicacion.findByIdAndUpdate(publicacion, {
         $push: { comentarios: Comentario._id }
     })
@@ -19,8 +19,8 @@ const crearComentario = async (req, res) => {
 
 const editarComentario = async (req, res) => {
     const { id } = req.params;
-    const {texto } = req.body;
-    const Comentario = await comentario.findByIdAndUpdate(id, {texto });
+    const {text, puntuacion } = req.body;
+    const Comentario = await comentario.findByIdAndUpdate(id, {text, puntuacion });
 
     res.json({ msg: 'Comentario actualizado', Comentario });
     
@@ -29,10 +29,10 @@ const editarComentario = async (req, res) => {
 const eliminarComentario = async (req, res) => {
     const { id } = req.params;
     const Comentario = await comentario.findByIdAndDelete(id);
-    await Publicacion.findByIdAndUpdate(Publicacion, {
+    await Publicacion.findByIdAndUpdate(Comentario.publicacion, {
         $pull: { comentarios: Comentario._id }
     })
-    await Usuario.findByIdAndUpdate(autor, {
+    await Usuario.findByIdAndUpdate(Comentario.autor, {
         $pull: { comentarios: Comentario._id }
     })
     res.json({ msg: 'Comentario eliminado', Comentario });
